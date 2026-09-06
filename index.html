@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth for Change Pakistan - Empowering the Nation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#059669',
+                        secondary: '#047857',
+                        accent: '#D97706',
+                        dark: '#0F172A',
+                        light: '#ECFDF5',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.92), rgba(4, 120, 87, 0.88)), url('https://images.unsplash.com/photo-1529390079861-591b354d7727?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        .team-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #059669, #D97706);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .photo-frame {
+            position: relative;
+            overflow: hidden;
+        }
+        .photo-frame img {
+            transition: transform 0.4s ease;
+        }
+        .team-card:hover .photo-frame img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center shadow-lg">
+                        <i class="fas fa-hands-holding-child text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-white font-serif tracking-tight block leading-none">Youth for Change</span>
+                        <span class="text-xs text-white/80 tracking-widest uppercase font-medium">Pakistan</span>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-accent font-medium transition text-sm tracking-wide uppercase">Home</a>
+                    <a href="#about" class="text-white hover:text-accent font-medium transition text-sm tracking-wide uppercase">About</a>
+                    <a href="#team" class="text-white hover:text-accent font-medium transition text-sm tracking-wide uppercase">Our Team</a>
+                    <a href="#vision" class="text-white hover:text-accent font-medium transition text-sm tracking-wide uppercase">Vision</a>
+                    <a href="#programs" class="text-white hover:text-accent font-medium transition text-sm tracking-wide uppercase">Programs</a>
+                    <a href="#contact" class="px-6 py-2.5 bg-accent text-white rounded-lg font-semibold hover:bg-amber-600 transition shadow-lg text-sm tracking-wide uppercase">Join Us</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white absolute w-full top-full left-0 shadow-2xl border-t">
+            <div class="px-6 py-8 space-y-4">
+                <a href="#home" class="block text-gray-800 font-semibold hover:text-primary py-2">Home</a>
+                <a href="#about" class="block text-gray-800 font-semibold hover:text-primary py-2">About</a>
+                <a href="#team" class="block text-gray-800 font-semibold hover:text-primary py-2">Our Team</a>
+                <a href="#vision" class="block text-gray-800 font-semibold hover:text-primary py-2">Vision</a>
+                <a href="#programs" class="block text-gray-800 font-semibold hover:text-primary py-2">Programs</a>
+                <a href="#contact" class="block px-6 py-3 bg-accent text-white rounded-lg text-center font-bold mt-4">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-32">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-sm font-medium mb-8 border border-white/20">
+                    <span class="w-2 h-2 bg-accent rounded-full mr-3 animate-pulse"></span>
+                    A New Beginning for Pakistan's Youth
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-white leading-tight mb-8">
+                    Youth for Change,<br>
+                    <span class="text-accent">Change</span> for Pakistan
+                </h1>
+                <p class="text-xl text-gray-100 mb-10 leading-relaxed max-w-2xl font-light">
+                    We are a passionate team of six young individuals committed to transforming our communities through education, empowerment, and sustainable action. Join us in building the Pakistan we dream of.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#team" class="px-8 py-4 bg-accent text-white rounded-lg font-bold text-lg hover:bg-amber-600 transition shadow-2xl hover:shadow-amber-500/25 transform hover:-translate-y-1 flex items-center">
+                        Meet Our Team <i class="fas fa-users ml-3"></i>
+                    </a>
+                    <a href="#vision" class="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-lg font-bold text-lg hover:bg-white/20 transition flex items-center">
+                        Our Vision <i class="fas fa-arrow-right ml-3"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 scroll-indicator">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Youth volunteers" class="relative rounded-2xl shadow-2xl w-full">
+                </div>
+                <div>
+                    <div class="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-bold tracking-wide uppercase mb-4">About Us</div>
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-dark mb-6 leading-tight">Starting a Movement, Building a Legacy</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Youth for Change was founded in 2024 by six young Pakistanis who believe that real change starts at the grassroots level. We are not just an organization — we are a movement of youth, for youth, and by youth.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        Led by President Touqeer Ahmad, our team brings together diverse skills and shared passion. From education to climate action, we are laying the foundation for sustainable development across Pakistan, one community at a time.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-light">
+                            <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-primary/20">
+                                <i class="fas fa-bullseye text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg mb-1">Our Mission</h4>
+                                <p class="text-gray-600 text-sm">To empower Pakistani youth through education, skills, and civic engagement for sustainable national development.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 p-4 rounded-xl bg-light">
+                            <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent/20">
+                                <i class="fas fa-eye text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg mb-1">Our Vision</h4>
+                                <p class="text-gray-600 text-sm">A Pakistan where every young person has the tools, opportunities, and voice to shape their future.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-light relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-bold tracking-wide uppercase mb-4">The Founders</div>
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold text-dark mb-4">Meet the Team</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Six passionate individuals, one shared vision — transforming Pakistan through youth empowerment.</p>
+            </div>
+
+            <!-- Executive Leadership -->
+            <div class="mb-16">
+                <h3 class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">Executive Committee</h3>
+                
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- President - Touqeer Ahmad (Photo 1) -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg team-card card-hover text-center relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider">President</span>
+                        </div>
+                        <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-secondary p-1 photo-frame">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <img src="TouqeerAhmad_Pic.jpg" alt="Touqeer Ahmad - President" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h4 class="text-2xl font-bold text-dark mb-1">Touqeer Ahmad</h4>
+                        <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-4">President & Founder</p>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Founder and strategic leader driving the vision, partnerships, and direction of Youth for Change across Pakistan.</p>
+                        <div class="flex justify-center space-x-3">
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition cursor-pointer"><i class="fab fa-linkedin-in"></i></span>
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition cursor-pointer"><i class="fab fa-twitter"></i></span>
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition cursor-pointer"><i class="fas fa-envelope"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Vice President - Sumair (Photo 3) -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg team-card card-hover text-center relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-bold uppercase tracking-wider">VP</span>
+                        </div>
+                        <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-secondary to-primary p-1 photo-frame">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <img src="IMG_0117.JPG" alt="Sumair - Vice President" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h4 class="text-2xl font-bold text-dark mb-1">Sumair</h4>
+                        <p class="text-secondary font-semibold text-sm uppercase tracking-wider mb-4">Vice President</p>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Oversees operations, program implementation, and field coordination ensuring impactful execution on the ground.</p>
+                        <div class="flex justify-center space-x-3">
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-secondary hover:text-white transition cursor-pointer"><i class="fab fa-linkedin-in"></i></span>
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-secondary hover:text-white transition cursor-pointer"><i class="fab fa-twitter"></i></span>
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-secondary hover:text-white transition cursor-pointer"><i class="fas fa-envelope"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Secretary - Mansoor Ahmad (Photo 6) -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg team-card card-hover text-center relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-bold uppercase tracking-wider">Secretary</span>
+                        </div>
+                        <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-accent to-amber-600 p-1 photo-frame">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <img src="IMG_0559.JPG" alt="Mansoor Ahmad - Secretary" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h4 class="text-2xl font-bold text-dark mb-1">Mansoor Ahmad</h4>
+                        <p class="text-accent font-semibold text-sm uppercase tracking-wider mb-4">General Secretary</p>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed">Manages administrative operations, documentation, compliance, and internal communications for organizational excellence.</p>
+                        <div class="flex justify-center space-x-3">
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-accent hover:text-white transition cursor-pointer"><i class="fab fa-linkedin-in"></i></span>
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-accent hover:text-white transition cursor-pointer"><i class="fab fa-twitter"></i></span>
+                            <span class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-accent hover:text-white transition cursor-pointer"><i class="fas fa-envelope"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Team -->
+            <div class="mb-16">
+                <h3 class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">Core Team</h3>
+                
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Finance Minister - Shahzaib (Photo 2) -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg team-card card-hover text-center relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold uppercase tracking-wider">Finance</span>
+                        </div>
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 p-1 photo-frame">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <img src="IMG_0102.JPG" alt="Shahzaib - Finance Minister" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-1">Shahzaib</h4>
+                        <p class="text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-4">Finance Minister</p>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">Responsible for budget planning, financial reporting, donor accountability, and sustainable resource management.</p>
+                        <div class="flex justify-center space-x-3">
+                            <span class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-emerald-500 hover:text-white transition cursor-pointer"><i class="fab fa-linkedin-in text-sm"></i></span>
+                            <span class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-emerald-500 hover:text-white transition cursor-pointer"><i class="fas fa-envelope text-sm"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Program Coordinator - Emmad (Photo 4) -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg team-card card-hover text-center relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">Programs</span>
+                        </div>
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 p-1 photo-frame">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <img src="IMG_0469.JPG" alt="Emmad - Program Coordinator" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-1">Emmad</h4>
+                        <p class="text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4">Program Coordinator</p>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">Designs and coordinates field programs, volunteer engagement, and community outreach initiatives nationwide.</p>
+                        <div class="flex justify-center space-x-3">
+                            <span class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-blue-500 hover:text-white transition cursor-pointer"><i class="fab fa-linkedin-in text-sm"></i></span>
+                            <span class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-blue-500 hover:text-white transition cursor-pointer"><i class="fas fa-envelope text-sm"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Communications Officer - Umair (Photo 5) -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg team-card card-hover text-center relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold uppercase tracking-wider">Media</span>
+                        </div>
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 p-1 photo-frame">
+                            <div class="w-full h-full rounded-full overflow-hidden">
+                                <img src="IMG_0525.JPG" alt="Umair - Communications Officer" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-dark mb-1">Umair</h4>
+                        <p class="text-purple-600 font-semibold text-sm uppercase tracking-wider mb-4">Communications Officer</p>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">Manages digital presence, content strategy, public relations, and storytelling for maximum impact and reach.</p>
+                        <div class="flex justify-center space-x-3">
+                            <span class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-purple-500 hover:text-white transition cursor-pointer"><i class="fab fa-linkedin-in text-sm"></i></span>
+                            <span class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-purple-500 hover:text-white transition cursor-pointer"><i class="fas fa-envelope text-sm"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Overview -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto border border-gray-100">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-sitemap text-primary text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-dark text-lg mb-2">Our Structure</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Youth for Change operates with a flat, collaborative structure. The Executive Committee (President, VP, Secretary) provides strategic leadership, while the Core Team (Finance, Programs, Communications) drives execution. Every voice matters, every idea counts.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold">Touqeer Ahmad — President</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-semibold">Sumair — VP</span>
+                            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-semibold">Mansoor Ahmad — Secretary</span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-semibold">Shahzaib — Finance</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Emmad — Programs</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">Umair — Communications</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-bold tracking-wide uppercase mb-4">Our Focus</div>
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold text-dark mb-4">What We Stand For</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">As a new organization, we are building our foundation on these core pillars.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-light rounded-2xl p-10 text-center shadow-lg card-hover border-t-4 border-primary">
+                    <div class="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Education Access</h3>
+                    <p class="text-gray-600 leading-relaxed">Every child deserves quality education. We aim to establish tutoring centers, provide scholarships, and bridge the digital divide in underserved communities.</p>
+                </div>
+
+                <div class="bg-light rounded-2xl p-10 text-center shadow-lg card-hover border-t-4 border-accent">
+                    <div class="w-20 h-20 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-briefcase text-accent text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Skills & Employment</h3>
+                    <p class="text-gray-600 leading-relaxed">Youth unemployment is our challenge to solve. We will deliver vocational training, digital skills, and entrepreneurship support to create job creators.</p>
+                </div>
+
+                <div class="bg-light rounded-2xl p-10 text-center shadow-lg card-hover border-t-4 border-emerald-500">
+                    <div class="w-20 h-20 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-leaf text-emerald-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Climate Action</h3>
+                    <p class="text-gray-600 leading-relaxed">Pakistan faces severe climate challenges. Our tree plantation drives, awareness campaigns, and sustainable practices will protect our future.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-dark rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+                <div class="relative z-10">
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold mb-6">Join the Movement</h3>
+                    <p class="text-gray-300 text-lg max-w-2xl mx-auto mb-8">We are just getting started, and we need passionate individuals like you. Whether you want to volunteer, partner, or support our cause — there's a place for you in Youth for Change.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button class="px-8 py-4 bg-accent text-white rounded-lg font-bold text-lg hover:bg-amber-600 transition shadow-xl cursor-pointer">
+                            <i class="fas fa-hand-holding-heart mr-2"></i> Become a Volunteer
+                        </button>
+                        <button class="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-lg font-bold text-lg hover:bg-white/20 transition cursor-pointer">
+                            <i class="fas fa-handshake mr-2"></i> Partner With Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-24 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-bold tracking-wide uppercase mb-4">Coming Soon</div>
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold text-dark mb-4">Planned Programs</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Our roadmap for the first year of operations. These initiatives will launch as we build partnerships and secure resources.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+                        <i class="fas fa-graduation-cap text-6xl text-white/80 relative z-10"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-bold text-dark">Education First</h4>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-bold">Q3 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">After-school tutoring, digital literacy, and scholarship programs for underprivileged students.</p>
+                        <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-primary h-full rounded-full" style="width: 30%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Planning Phase</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-accent to-amber-600 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+                        <i class="fas fa-briefcase text-6xl text-white/80 relative z-10"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-bold text-dark">Skills for Future</h4>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded text-xs font-bold">Q4 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Vocational training bootcamps in technology, trades, and business development for youth.</p>
+                        <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-accent h-full rounded-full" style="width: 15%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Concept Phase</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition"></div>
+                        <i class="fas fa-tree text-6xl text-white/80 relative z-10"></i>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-bold text-dark">Green Pakistan</h4>
+                            <span class="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs font-bold">Q2 2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Tree plantation drives, clean-up campaigns, and environmental education in schools.</p>
+                        <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full rounded-full" style="width: 60%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Pilot Launch Ready</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <div class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-bold tracking-wide uppercase mb-4">Get In Touch</div>
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-dark mb-6 leading-tight">Start the Conversation</h2>
+                    <p class="text-gray-600 text-lg mb-10">Whether you want to volunteer, donate, partner, or just learn more — our team is ready to connect.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-5 p-5 bg-light rounded-xl">
+                            <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg">Email Us</h4>
+                                <p class="text-gray-600">info@youthforchange.org.pk</p>
+                                <p class="text-gray-500 text-sm">President: touqeer@youthforchange.org.pk</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-5 p-5 bg-light rounded-xl">
+                            <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg">Call Us</h4>
+                                <p class="text-gray-600">+92 300 1234567</p>
+                                <p class="text-gray-500 text-sm">Available 9 AM - 6 PM PST</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-5 p-5 bg-light rounded-xl">
+                            <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-location-dot text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark text-lg">Visit Us</h4>
+                                <p class="text-gray-600">Lahore, Punjab, Pakistan</p>
+                                <p class="text-gray-500 text-sm">Headquarters — detailed address on request</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <h4 class="font-bold text-dark mb-4">Follow Our Journey</h4>
+                        <div class="flex space-x-4">
+                            <span class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-secondary transition cursor-pointer shadow-lg shadow-primary/20"><i class="fab fa-facebook-f"></i></span>
+                            <span class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-secondary transition cursor-pointer shadow-lg shadow-primary/20"><i class="fab fa-twitter"></i></span>
+                            <span class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-secondary transition cursor-pointer shadow-lg shadow-primary/20"><i class="fab fa-instagram"></i></span>
+                            <span class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-secondary transition cursor-pointer shadow-lg shadow-primary/20"><i class="fab fa-linkedin-in"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-light p-8 lg:p-10 rounded-3xl shadow-xl border border-gray-100">
+                    <div class="flex items-center space-x-4 mb-8 pb-6 border-b border-gray-200">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-paper-plane text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-dark">Send a Message</h3>
+                            <p class="text-sm text-gray-500">We respond within 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <form class="space-y-5">
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                                <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition bg-white" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition bg-white" placeholder="Your surname">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition bg-white" placeholder="your@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Contact Team Member</label>
+                            <select class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition bg-white">
+                                <option>General Inquiry</option>
+                                <option>President — Touqeer Ahmad</option>
+                                <option>Vice President — Sumair</option>
+                                <option>Secretary — Mansoor Ahmad</option>
+                                <option>Finance — Shahzaib</option>
+                                <option>Programs — Emmad</option>
+                                <option>Communications — Umair</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition bg-white" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="button" class="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg hover:bg-secondary transition shadow-lg shadow-primary/25 transform hover:-translate-y-0.5 cursor-pointer">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-hands-holding-child text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold font-serif block">Youth for Change</span>
+                            <span class="text-xs text-gray-400 tracking-widest uppercase">Pakistan</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        A youth-led initiative founded in 2024, committed to empowering Pakistan's next generation through action, education, and advocacy.
+                    </p>
+                    <div class="flex space-x-3">
+                        <span class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition cursor-pointer"><i class="fab fa-facebook-f text-sm"></i></span>
+                        <span class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition cursor-pointer"><i class="fab fa-twitter text-sm"></i></span>
+                        <span class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition cursor-pointer"><i class="fab fa-instagram text-sm"></i></span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><span class="hover:text-accent transition cursor-pointer">About Us</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Our Team</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Our Vision</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Programs</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Contact</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white">Programs</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><span class="hover:text-accent transition cursor-pointer">Education First</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Skills for Future</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Green Pakistan</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Health & Wellness</span></li>
+                        <li><span class="hover:text-accent transition cursor-pointer">Disaster Relief</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white">Our Team</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-center space-x-2"><i class="fas fa-crown text-accent text-xs"></i><span>Touqeer Ahmad — President</span></li>
+                        <li class="flex items-center space-x-2"><i class="fas fa-user-tie text-primary text-xs"></i><span>Sumair — VP</span></li>
+                        <li class="flex items-center space-x-2"><i class="fas fa-file-lines text-secondary text-xs"></i><span>Mansoor Ahmad — Secretary</span></li>
+                        <li class="flex items-center space-x-2"><i class="fas fa-coins text-emerald-500 text-xs"></i><span>Shahzaib — Finance</span></li>
+                        <li class="flex items-center space-x-2"><i class="fas fa-briefcase text-blue-500 text-xs"></i><span>Emmad — Programs</span></li>
+                        <li class="flex items-center space-x-2"><i class="fas fa-bullhorn text-purple-500 text-xs"></i><span>Umair — Communications</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2024 Youth for Change Pakistan. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0 text-gray-500 text-sm">
+                    <span class="hover:text-white transition cursor-pointer">Privacy Policy</span>
+                    <span class="hover:text-white transition cursor-pointer">Terms of Service</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const navLinks = navbar.querySelectorAll('a:not(.bg-accent)');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const logoText = navbar.querySelector('.font-serif');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-blur', 'shadow-md');
+                navbar.classList.remove('bg-transparent', 'py-4');
+                navbar.classList.add('py-2');
+                navLinks.forEach(link => {
+                    if (!link.classList.contains('bg-accent')) {
+                        link.classList.remove('text-white');
+                        link.classList.add('text-gray-800');
+                    }
+                });
+                mobileBtn.classList.remove('text-white');
+                mobileBtn.classList.add('text-gray-800');
+                logoText.classList.remove('text-white');
+                logoText.classList.add('text-dark');
+            } else {
+                navbar.classList.remove('nav-blur', 'shadow-md', 'py-2');
+                navbar.classList.add('bg-transparent', 'py-4');
+                navLinks.forEach(link => {
+                    if (!link.classList.contains('bg-accent')) {
+                        link.classList.add('text-white');
+                        link.classList.remove('text-gray-800');
+                    }
+                });
+                mobileBtn.classList.add('text-white');
+                mobileBtn.classList.remove('text-gray-800');
+                logoText.classList.add('text-white');
+                logoText.classList.remove('text-dark');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
